@@ -94,8 +94,8 @@ void EventAction::EndOfEventAction(const G4Event*)
          mass = detConstruction->GetScoringVolumes().at(i)->GetLogicalVolume()->GetMass();
        };
 
-       dose = (fEdepV.at(i)/CLHEP::eV)/(mass*e_SI);
-      // dose = ((fEdepV.at(i)/CLHEP::eV)*e_SI)/(mass/kg);
+      // dose = (fEdepV.at(i)/CLHEP::eV)/(mass*e_SI);
+       dose = ((fEdepV.at(i)/CLHEP::eV)*e_SI)/(mass/kg);
        //std::cout<<"MASS  "<<mass<<"    "<<kg<<"   "<<e_SI<<"   "<< "   E: "<<fEdepV.at(i)<<std::endl;
        man->FillNtupleDColumn(2,0,fEdepV.at(i));
        man->FillNtupleIColumn(2,1,i);
