@@ -50,13 +50,8 @@ int main(int argc, char** argv)
 
   // Detect interactive mode (if no arguments) and define UI session
   //
-  CLHEP::HepRandom::setTheSeed(atol(argv[2]));
-  G4Random::setTheSeed(atol(argv[2]));
-  G4UIExecutive* ui = nullptr;
-  if ( argc == 1 ) { ui = new G4UIExecutive(argc, argv); }
-
-  // Optionally: choose a different Random engine...
-  // G4Random::setTheEngine(new CLHEP::MTwistEngine);
+  G4Random::setTheEngine(new CLHEP::MTwistEngine);
+   CLHEP::HepRandom::setTheSeed((unsigned)clock());
 
   //use G4SteppingVerboseWithUnits
   G4int precision = 4;
