@@ -53,8 +53,11 @@ int main(int argc, char** argv)
   G4UIExecutive* ui = nullptr;
   if ( argc == 1 ) { ui = new G4UIExecutive(argc, argv); }
   
-  G4Random::setTheEngine(new CLHEP::MTwistEngine);
-   CLHEP::HepRandom::setTheSeed((unsigned)clock());
+  //=========== new random  engine and  random seed====
+  CLHEP::HepRandom::setTheEngine(new CLHEP::MTwistEngine);
+  //CLHEP::HepRandom::setTheSeed(time(NULL));
+  CLHEP::HepRandom::setTheSeed((unsigned)clock());
+ //==================================================== 
 
   //use G4SteppingVerboseWithUnits
   G4int precision = 4;
